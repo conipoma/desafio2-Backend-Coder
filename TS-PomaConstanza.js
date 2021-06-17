@@ -54,59 +54,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var operacion = function (operation, num1, num2) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
+    var result, resultSuma_1, resultResta_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                result = 0;
                 if (!(operation === "suma")) return [3 /*break*/, 2];
-                return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./suma.js')); }).then(function (resolve) {
-                        var suma = new resolve.Suma(num1, num2);
-                        result = suma.resultado();
-                        console.log(result);
-                    }, function (reject) { return console.log("error"); })];
+                return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./suma.js')); }).then(function (data) {
+                        console.log(data);
+                        resultSuma_1 = new data.Suma(num1, num2).resultado();
+                        // console.log(`el resultado de la suma es ${resultSuma}`)
+                        return result = resultSuma_1;
+                    })
+                        .catch(function (e) { return e; })];
             case 1:
                 _a.sent();
-                console.log(operation);
-                return [3 /*break*/, 4];
-            case 2: return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./resta.js')); }).then(function (resolve) {
-                    var resta = new resolve.Resta(num1, num2);
-                    result = resta.resultado();
-                    console.log(result);
-                }, function (reject) { return console.log("error"); })];
+                _a.label = 2;
+            case 2:
+                if (!(operation === "resta")) return [3 /*break*/, 4];
+                return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./resta.js')); }).then(function (data) {
+                        resultResta_1 = new data.Resta(num1, num2).resultado();
+                        // console.log(`el resultado de la resta es ${resultResta}`)
+                        return result = resultResta_1;
+                    })
+                        .catch(function (e) { return e; })];
             case 3:
                 _a.sent();
-                console.log(operation);
                 _a.label = 4;
-            case 4: return [2 /*return*/];
+            case 4: return [2 /*return*/, result];
         }
     });
 }); };
-// operacion("suma", 2, 2)
 var op = [
-    {
-        "num1": 2,
-        "num2": 3,
-        "operation": "suma"
-    },
-    {
-        "num1": 9,
-        "num2": 5,
-        "operation": "resta"
-    }, {
-        "num1": 5,
-        "num2": 11,
-        "operation": "suma"
-    }
+    { "num1": 2, "num2": 3, "operation": "suma" },
+    { "num1": 9, "num2": 5, "operation": "resta" },
+    { "num1": 5, "num2": 11, "operation": "suma" }
 ];
 var operaciones = function (operations) {
-    var contador = 1;
     operations.forEach(function (element) {
-        console.log("Operacion número: " + contador);
         operacion(element.operation, element.num1, element.num2);
-        contador++;
-        console.log("---------------------------");
     });
 };
 operaciones(op);
