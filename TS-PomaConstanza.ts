@@ -7,8 +7,8 @@ const operacion = async(operation: string, num1: number, num2: number) => {
                 console.log(data)
                 resultSuma = new data.Suma(num1, num2).resultado();
                 // console.log(`el resultado de la suma es ${resultSuma}`)
-                return result = resultSuma;
-        }) 
+                return Promise.resolve(resultSuma);
+            }) 
             .catch(e => e)
 
     } 
@@ -19,12 +19,12 @@ const operacion = async(operation: string, num1: number, num2: number) => {
             .then(data => {
                 resultResta = new data.Resta(num1, num2).resultado();
                 // console.log(`el resultado de la resta es ${resultResta}`)
-                return result = resultResta;
-        }) 
+                return Promise.resolve(resultResta);
+            }) 
             .catch(e => e)
     }
     
-    return result;
+    return Promise.resolve(result);
 }
 
 

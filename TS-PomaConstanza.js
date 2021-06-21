@@ -65,7 +65,7 @@ var operacion = function (operation, num1, num2) { return __awaiter(void 0, void
                         console.log(data);
                         resultSuma_1 = new data.Suma(num1, num2).resultado();
                         // console.log(`el resultado de la suma es ${resultSuma}`)
-                        return result = resultSuma_1;
+                        return Promise.resolve(resultSuma_1);
                     })
                         .catch(function (e) { return e; })];
             case 1:
@@ -76,13 +76,13 @@ var operacion = function (operation, num1, num2) { return __awaiter(void 0, void
                 return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./resta.js')); }).then(function (data) {
                         resultResta_1 = new data.Resta(num1, num2).resultado();
                         // console.log(`el resultado de la resta es ${resultResta}`)
-                        return result = resultResta_1;
+                        return Promise.resolve(resultResta_1);
                     })
                         .catch(function (e) { return e; })];
             case 3:
                 _a.sent();
                 _a.label = 4;
-            case 4: return [2 /*return*/, result];
+            case 4: return [2 /*return*/, Promise.resolve(result)];
         }
     });
 }); };
